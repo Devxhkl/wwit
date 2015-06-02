@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Five" representedClassName="PRODUCT_MODULE_NAME.Five" syncable="YES">
+        <attribute name="done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="four" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Four" inverseName="fives" inverseEntity="Four" syncable="YES"/>
+    </entity>
+    <entity name="Four" representedClassName="PRODUCT_MODULE_NAME.Four" syncable="YES">
+        <attribute name="done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Five" inverseName="four" inverseEntity="Five" syncable="YES"/>
+        <relationship name="three" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Three" inverseName="fours" inverseEntity="Three" syncable="YES"/>
+    </entity>
+    <entity name="One" representedClassName="PRODUCT_MODULE_NAME.One" syncable="YES">
+        <attribute name="done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="twos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Two" inverseName="one" inverseEntity="Two" syncable="YES"/>
+    </entity>
+    <entity name="Three" representedClassName="PRODUCT_MODULE_NAME.Three" syncable="YES">
+        <attribute name="done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fours" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Four" inverseName="three" inverseEntity="Four" syncable="YES"/>
+        <relationship name="two" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Two" inverseName="threes" inverseEntity="Two" syncable="YES"/>
+    </entity>
+    <entity name="Two" representedClassName="PRODUCT_MODULE_NAME.Two" syncable="YES">
+        <attribute name="done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="one" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="One" inverseName="twos" inverseEntity="One" syncable="YES"/>
+        <relationship name="threes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Three" inverseName="two" inverseEntity="Three" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="One" positionX="-18" positionY="27" width="128" height="105"/>
+        <element name="Two" positionX="36" positionY="81" width="128" height="120"/>
+        <element name="Three" positionX="9" positionY="54" width="128" height="120"/>
+        <element name="Four" positionX="18" positionY="63" width="128" height="120"/>
+        <element name="Five" positionX="27" positionY="72" width="128" height="105"/>
+    </elements>
 </model>

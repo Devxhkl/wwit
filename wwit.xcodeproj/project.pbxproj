@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		FA9728B91B0F952200206005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728B81B0F952200206005 /* AppDelegate.swift */; };
 		FA9728BC1B0F952200206005 /* wwit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA9728BA1B0F952200206005 /* wwit.xcdatamodeld */; };
-		FA9728BE1B0F952200206005 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728BD1B0F952200206005 /* ViewController.swift */; };
 		FA9728C11B0F952200206005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9728BF1B0F952200206005 /* Main.storyboard */; };
 		FA9728C31B0F952200206005 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9728C21B0F952200206005 /* Images.xcassets */; };
 		FA9728C61B0F952200206005 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9728C41B0F952200206005 /* LaunchScreen.xib */; };
 		FA9728D21B0F952200206005 /* wwitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728D11B0F952200206005 /* wwitTests.swift */; };
+		FAF66E201B1C5E0D003EDA4A /* WwitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */; };
+		FAF66E531B1C8E32003EDA4A /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E521B1C8E32003EDA4A /* StageViewController.swift */; };
+		FAF66E9E1B1D3195003EDA4A /* Three.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E9D1B1D3195003EDA4A /* Three.swift */; };
+		FAF66EA01B1D3196003EDA4A /* Two.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E9F1B1D3196003EDA4A /* Two.swift */; };
+		FAF66EA21B1D3196003EDA4A /* Four.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66EA11B1D3196003EDA4A /* Four.swift */; };
+		FAF66EA41B1D3196003EDA4A /* One.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66EA31B1D3196003EDA4A /* One.swift */; };
+		FAF66EA61B1D3196003EDA4A /* Five.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66EA51B1D3196003EDA4A /* Five.swift */; };
+		FAF66EA91B1D3481003EDA4A /* DataStoreCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66EA81B1D3481003EDA4A /* DataStoreCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +38,20 @@
 		FA9728B71B0F952200206005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9728B81B0F952200206005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9728BB1B0F952200206005 /* wwit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wwit.xcdatamodel; sourceTree = "<group>"; };
-		FA9728BD1B0F952200206005 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA9728C01B0F952200206005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA9728C21B0F952200206005 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA9728C51B0F952200206005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FA9728CB1B0F952200206005 /* wwitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wwitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9728D01B0F952200206005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9728D11B0F952200206005 /* wwitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wwitTests.swift; sourceTree = "<group>"; };
+		FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WwitCell.swift; sourceTree = "<group>"; };
+		FAF66E521B1C8E32003EDA4A /* StageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
+		FAF66E9D1B1D3195003EDA4A /* Three.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Three.swift; sourceTree = "<group>"; };
+		FAF66E9F1B1D3196003EDA4A /* Two.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Two.swift; sourceTree = "<group>"; };
+		FAF66EA11B1D3196003EDA4A /* Four.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Four.swift; sourceTree = "<group>"; };
+		FAF66EA31B1D3196003EDA4A /* One.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = One.swift; sourceTree = "<group>"; };
+		FAF66EA51B1D3196003EDA4A /* Five.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Five.swift; sourceTree = "<group>"; };
+		FAF66EA81B1D3481003EDA4A /* DataStoreCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				FA9728B81B0F952200206005 /* AppDelegate.swift */,
-				FA9728BD1B0F952200206005 /* ViewController.swift */,
+				FAF66E521B1C8E32003EDA4A /* StageViewController.swift */,
+				FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */,
 				FA9728BF1B0F952200206005 /* Main.storyboard */,
+				FAF66EA71B1D31A4003EDA4A /* CoreData */,
 				FA9728C21B0F952200206005 /* Images.xcassets */,
 				FA9728C41B0F952200206005 /* LaunchScreen.xib */,
-				FA9728BA1B0F952200206005 /* wwit.xcdatamodeld */,
 				FA9728B61B0F952200206005 /* Supporting Files */,
 			);
 			path = wwit;
@@ -113,6 +128,20 @@
 				FA9728D01B0F952200206005 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAF66EA71B1D31A4003EDA4A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FAF66EA81B1D3481003EDA4A /* DataStoreCenter.swift */,
+				FAF66EA51B1D3196003EDA4A /* Five.swift */,
+				FAF66EA31B1D3196003EDA4A /* One.swift */,
+				FAF66EA11B1D3196003EDA4A /* Four.swift */,
+				FAF66E9F1B1D3196003EDA4A /* Two.swift */,
+				FAF66E9D1B1D3195003EDA4A /* Three.swift */,
+				FA9728BA1B0F952200206005 /* wwit.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +244,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9728BE1B0F952200206005 /* ViewController.swift in Sources */,
+				FAF66EA01B1D3196003EDA4A /* Two.swift in Sources */,
+				FAF66EA21B1D3196003EDA4A /* Four.swift in Sources */,
+				FAF66E201B1C5E0D003EDA4A /* WwitCell.swift in Sources */,
+				FAF66E531B1C8E32003EDA4A /* StageViewController.swift in Sources */,
+				FAF66EA91B1D3481003EDA4A /* DataStoreCenter.swift in Sources */,
 				FA9728BC1B0F952200206005 /* wwit.xcdatamodeld in Sources */,
+				FAF66E9E1B1D3195003EDA4A /* Three.swift in Sources */,
+				FAF66EA41B1D3196003EDA4A /* One.swift in Sources */,
+				FAF66EA61B1D3196003EDA4A /* Five.swift in Sources */,
 				FA9728B91B0F952200206005 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +449,7 @@
 				FA9728D71B0F952200206005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA9728D81B0F952200206005 /* Build configuration list for PBXNativeTarget "wwitTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +458,7 @@
 				FA9728DA1B0F952200206005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
