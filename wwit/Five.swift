@@ -16,7 +16,7 @@ class Five: NSManagedObject {
     @NSManaged var title: String
     @NSManaged var four: Four
     
-    class func createOne(managedObjectContext: NSManagedObjectContext, _title: String, _priority: String, _done: Bool, _four: Four) -> Five {
+    class func createFive(managedObjectContext: NSManagedObjectContext, _title: String, _priority: String, _done: Bool, _four: Four) -> Five {
         let five = NSEntityDescription.insertNewObjectForEntityForName("Five", inManagedObjectContext: managedObjectContext) as! Five
         
         five.title = _title

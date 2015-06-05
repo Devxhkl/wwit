@@ -134,11 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				FAF66EA81B1D3481003EDA4A /* DataStoreCenter.swift */,
-				FAF66EA51B1D3196003EDA4A /* Five.swift */,
 				FAF66EA31B1D3196003EDA4A /* One.swift */,
-				FAF66EA11B1D3196003EDA4A /* Four.swift */,
 				FAF66E9F1B1D3196003EDA4A /* Two.swift */,
 				FAF66E9D1B1D3195003EDA4A /* Three.swift */,
+				FAF66EA11B1D3196003EDA4A /* Four.swift */,
+				FAF66EA51B1D3196003EDA4A /* Five.swift */,
 				FA9728BA1B0F952200206005 /* wwit.xcdatamodeld */,
 			);
 			name = CoreData;

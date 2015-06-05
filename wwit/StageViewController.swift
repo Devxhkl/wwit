@@ -13,24 +13,38 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var wwitTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
+    let dataCenter = DataStoreCenter()
     var data = [AnyObject]()
     var stage = 0
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         stage = navigationController!.viewControllers.count
         navigationController!.navigationBar.hidden = true
         
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "recieveData:", name: "data", object: nil)
+        
+        dataCenter.getData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func addThing(sender: AnyObject) {
+        dataCenter.addTask(stage, title: "First task", priority: "ASAP")
+    }
+    
+    func recieveData(notification: NSNotification) {
         
+        if let ones = notification.userInfo!["One"] as? [AnyObject] {
+            data = ones
+            wwitTable.reloadData()
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -38,11 +52,13 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("wwitCell", forIndexPath: indexPath) as! WwitCell
+        
+        cell.titleLabel.text = data[indexPath.row].title
         
         return cell
     }
