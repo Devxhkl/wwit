@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>33EB2C1E-19CC-4B52-8C17-0112526DBC2E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>wwit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7ED5E5B1330965C3103DF033FB238F652A2872A5</key>
 		<string>https://github.com/Devxhkl/wwit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>wwit.xcodeproj/project.xcworkspace</string>
+	<string>wwit.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7ED5E5B1330965C3103DF033FB238F652A2872A5</key>

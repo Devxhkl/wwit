@@ -14,7 +14,7 @@ class DataStoreCenter: NSObject {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
     
     var ones = [One]()
-    
+    let notificationCenter = NSNotificationCenter.defaultCenter()
 }
 
 extension DataStoreCenter {
@@ -28,26 +28,46 @@ extension DataStoreCenter {
             
             ones = one as! [One]
             println(ones.count)
-            let notificationCenter = NSNotificationCenter.defaultCenter()
+            
             notificationCenter.postNotificationName("data", object: nil, userInfo: ["One": ones])
 
             
         }
     }
         
-    func addTask(stage: Int, title: String, priority: String) {
-        switch stage {
-        case 1:
-            One.createOne(managedObjectContext, _title: title, _priority: priority, _done: false)
-            
-            var error: NSError?
-            if managedObjectContext.save(&error) {
-                println("saved *** One ***")
-                getData()
-            }
-//            Two.createTwo(managedObjectContext, _title: title, _priority: priority, _done: false, _one: nil)
-        default:
-            println()
+    func addMainTask(title: String, priority: String) {
+        
+        One.createOne(managedObjectContext, _title: title, _priority: priority, _done: false)
+        
+        var error: NSError?
+        if managedObjectContext.save(&error) {
+            println("saved main task")
+            getData()
         }
+    }
+    
+    func addStageTask(stage: Int, title: String, priority: String, motherEntity: AnyObject) {
+        var freshData: AnyObject!
+        
+        switch stage {
+        case 2:
+            freshData = Two.createTwo(managedObjectContext, _title: title, _priority: priority, _done: false, _one: motherEntity as! One) as Two
+        case 3:
+            freshData = Three.createThree(managedObjectContext, _title: title, _priority: priority, _done: false, _two: motherEntity as! Two) as Three
+        case 4:
+            freshData = Four.createFour(managedObjectContext, _title: title, _priority: priority, _done: false, _three: motherEntity as! Three) as Four
+        case 5:
+            freshData = Five.createFive(managedObjectContext, _title: title, _priority: priority, _done: false, _four: motherEntity as! Four) as Five
+        default:
+            println("Invalid stage")
+        }
+        
+        var error: NSError?
+        if managedObjectContext.save(&error) {
+            notificationCenter.postNotificationName("freshData", object: nil, userInfo: [stage: freshData])
+            println("saved stage \(stage) task")
+            getData()
+        }
+
     }
 }

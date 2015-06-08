@@ -13,6 +13,9 @@
 		FA9728C31B0F952200206005 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9728C21B0F952200206005 /* Images.xcassets */; };
 		FA9728C61B0F952200206005 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9728C41B0F952200206005 /* LaunchScreen.xib */; };
 		FA9728D21B0F952200206005 /* wwitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728D11B0F952200206005 /* wwitTests.swift */; };
+		FAD223781B24CB5000933258 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD223771B24CB5000933258 /* DataManager.swift */; };
+		FAD2237A1B24E70400933258 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD223791B24E70400933258 /* AddTaskViewController.swift */; };
+		FAD2237C1B2510CF00933258 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2237B1B2510CF00933258 /* OneViewController.swift */; };
 		FAF66E201B1C5E0D003EDA4A /* WwitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */; };
 		FAF66E531B1C8E32003EDA4A /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E521B1C8E32003EDA4A /* StageViewController.swift */; };
 		FAF66E9E1B1D3195003EDA4A /* Three.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF66E9D1B1D3195003EDA4A /* Three.swift */; };
@@ -44,6 +47,9 @@
 		FA9728CB1B0F952200206005 /* wwitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wwitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9728D01B0F952200206005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9728D11B0F952200206005 /* wwitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wwitTests.swift; sourceTree = "<group>"; };
+		FAD223771B24CB5000933258 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		FAD223791B24E70400933258 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		FAD2237B1B2510CF00933258 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WwitCell.swift; sourceTree = "<group>"; };
 		FAF66E521B1C8E32003EDA4A /* StageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
 		FAF66E9D1B1D3195003EDA4A /* Three.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Three.swift; sourceTree = "<group>"; };
@@ -94,8 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				FA9728B81B0F952200206005 /* AppDelegate.swift */,
+				FAD2237B1B2510CF00933258 /* OneViewController.swift */,
 				FAF66E521B1C8E32003EDA4A /* StageViewController.swift */,
+				FAD223791B24E70400933258 /* AddTaskViewController.swift */,
 				FAF66E1F1B1C5E0D003EDA4A /* WwitCell.swift */,
+				FAD223771B24CB5000933258 /* DataManager.swift */,
 				FA9728BF1B0F952200206005 /* Main.storyboard */,
 				FAF66EA71B1D31A4003EDA4A /* CoreData */,
 				FA9728C21B0F952200206005 /* Images.xcassets */,
@@ -245,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF66EA01B1D3196003EDA4A /* Two.swift in Sources */,
+				FAD2237A1B24E70400933258 /* AddTaskViewController.swift in Sources */,
 				FAF66EA21B1D3196003EDA4A /* Four.swift in Sources */,
 				FAF66E201B1C5E0D003EDA4A /* WwitCell.swift in Sources */,
 				FAF66E531B1C8E32003EDA4A /* StageViewController.swift in Sources */,
@@ -252,6 +262,8 @@
 				FA9728BC1B0F952200206005 /* wwit.xcdatamodeld in Sources */,
 				FAF66E9E1B1D3195003EDA4A /* Three.swift in Sources */,
 				FAF66EA41B1D3196003EDA4A /* One.swift in Sources */,
+				FAD223781B24CB5000933258 /* DataManager.swift in Sources */,
+				FAD2237C1B2510CF00933258 /* OneViewController.swift in Sources */,
 				FAF66EA61B1D3196003EDA4A /* Five.swift in Sources */,
 				FA9728B91B0F952200206005 /* AppDelegate.swift in Sources */,
 			);

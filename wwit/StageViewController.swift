@@ -13,9 +13,9 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var wwitTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
-    let dataCenter = DataStoreCenter()
-    var data = [AnyObject]()
-    var stage = 0
+    var data = Array<AnyObject>()
+    var stage: Int!
+    var motherEntity: AnyObject!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,26 +23,24 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
         stage = navigationController!.viewControllers.count
         navigationController!.navigationBar.hidden = true
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "recieveData:", name: "data", object: nil)
+        println("stage: \(stage)")
         
-        dataCenter.getData()
+        if (motherEntity != nil) {
+            println(motherEntity!.title!)
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData:", name: "freshData", object: nil)
     }
     
-    @IBAction func addThing(sender: AnyObject) {
-        dataCenter.addTask(stage, title: "First task", priority: "ASAP")
-    }
-    
-    func recieveData(notification: NSNotification) {
-        
-        if let ones = notification.userInfo!["One"] as? [AnyObject] {
-            data = ones
+    func refreshData(notification: NSNotification) {
+        let dict = notification.userInfo as! [Int: AnyObject]
+        if let task: AnyObject = dict[stage] {
+            data.append(task)
             wwitTable.reloadData()
         }
     }
@@ -64,10 +62,43 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let nextStage = storyboard?.instantiateViewControllerWithIdentifier("StageViewController") as! StageViewController
-        navigationController?.pushViewController(nextStage, animated: true)
+        if stage < 5 {
+            let nextStage = storyboard?.instantiateViewControllerWithIdentifier("StageViewController") as! StageViewController
+            navigationController?.pushViewController(nextStage, animated: true)
+            
+            switch stage {
+            case 2:
+                if let mother = data[indexPath.row] as? Two {
+                    nextStage.motherEntity = mother
+                    if let children = mother.threes.allObjects as? [Three] {
+                        nextStage.data = children
+                    }
+                }
+            case 3:
+                if let mother = data[indexPath.row] as? Three {
+                    nextStage.motherEntity = mother
+                    if let children = mother.fours.allObjects as? [Four] {
+                        nextStage.data = children
+                    }
+                }
+            case 4:
+                if let mother = data[indexPath.row] as? Four {
+                    nextStage.motherEntity = mother
+                    if let children = mother.fives.allObjects as? [Five] {
+                        nextStage.data = children
+                    }
+                }
+                
+            default:
+                println("Invalid case")
+                
+            }
+        }
     }
-
+    
+    @IBAction func unwindFromAdd(segue: UIStoryboardSegue) {
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -78,14 +109,17 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addTaskSegue" {
+            let addTaskVC = segue.destinationViewController as! AddTaskViewController
+            addTaskVC.motherEntity = motherEntity
+            addTaskVC.stage = stage
+        }
     }
-    */
+
 
 }
