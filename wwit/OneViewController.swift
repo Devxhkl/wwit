@@ -48,7 +48,12 @@ class OneViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("wwitCell", forIndexPath: indexPath) as! WwitCell
         
-        cell.titleLabel.text = data[indexPath.row].title        
+        cell.selectionStyle = .None
+        cell.titleLabel.text = data[indexPath.row].title
+        let task = data[indexPath.row] as! One
+        if task.done as Bool {
+            cell.backgroundColor = UIColor.greenColor()
+        }
         
         return cell
     }
@@ -56,6 +61,29 @@ class OneViewController: UIViewController {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var doneAction = UITableViewRowAction(style: .Normal, title: "Done", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            
+            self.dataCenter.markAsDone(1, task: self.data[indexPath.row])
+            self.wwitTable.reloadData()
+        })
+        
+        var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            
+            self.dataCenter.deleteTask(self.data[indexPath.row])
+            self.wwitTable.reloadData()
+        })
+        
+        doneAction.backgroundColor = UIColor.greenColor()
+        
+        return [deleteAction, doneAction]
+    }
+
     
     @IBAction func unwindFromAdd(segue: UIStoryboardSegue) {
     }

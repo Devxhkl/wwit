@@ -27,7 +27,7 @@ extension DataStoreCenter {
         if let one = data {
             
             ones = one as! [One]
-            println(ones.count)
+//            println(ones.count)
             
             notificationCenter.postNotificationName("data", object: nil, userInfo: ["One": ones])
 
@@ -68,6 +68,39 @@ extension DataStoreCenter {
             println("saved stage \(stage) task")
             getData()
         }
-
     }
+    
+    func markAsDone(stage: Int, task: AnyObject) {
+        switch stage {
+        case 1:
+            (task as! One).done = 1
+        case 2:
+            (task as! Two).done = 1
+        case 3:
+            (task as! Three).done = 1
+        case 4:
+            (task as! Four).done = 1
+        case 5:
+            (task as! Five).done = 1
+        default:
+            println("Invalid stage")
+        }
+        
+        var error: NSError?
+        if managedObjectContext.save(&error) {
+            println("saved \(task.title) as Done")
+            getData()
+        }
+    }
+    
+    func deleteTask(task: AnyObject) {
+        managedObjectContext.deleteObject(task as! NSManagedObject)
+        
+        var error: NSError?
+        if managedObjectContext.save(&error) {
+            println("Deleted")
+            getData()
+        }
+    }
+    
 }
