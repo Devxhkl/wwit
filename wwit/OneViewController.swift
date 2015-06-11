@@ -19,6 +19,10 @@ class OneViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        wwitTable.contentInset.top = 50.0
+        wwitTable.estimatedRowHeight = 50.0
+        wwitTable.rowHeight = UITableViewAutomaticDimension
+        
         navigationController!.navigationBar.hidden = true
 
         let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -51,8 +55,12 @@ class OneViewController: UIViewController {
         cell.selectionStyle = .None
         cell.titleLabel.text = data[indexPath.row].title
         let task = data[indexPath.row] as! One
+        
         if task.done as Bool {
             cell.backgroundColor = UIColor.greenColor()
+        }
+        else {
+            cell.backgroundColor = UIColor.whiteColor()
         }
         
         return cell

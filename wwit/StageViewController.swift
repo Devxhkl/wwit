@@ -12,14 +12,20 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var wwitTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var pathLabel: UILabel!
     
     let dataCenter = DataStoreCenter()
     var data = Array<AnyObject>()
     var stage: Int!
     var motherEntity: AnyObject!
+    var lastPath = ""
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        wwitTable.contentInset.top = 50.0
+        wwitTable.estimatedRowHeight = 50.0
+        wwitTable.rowHeight = UITableViewAutomaticDimension
         
         stage = navigationController!.viewControllers.count
         navigationController!.navigationBar.hidden = true
@@ -27,7 +33,7 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        println("stage: \(stage)")
         
         if (motherEntity != nil) {
-//            println(motherEntity!.title!)
+            pathLabel.text = lastPath + motherEntity.title!!
         }
         
     }
@@ -65,20 +71,32 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if task.done as Bool {
                 cell.backgroundColor = UIColor.greenColor()
             }
+            else {
+                cell.backgroundColor = UIColor.whiteColor()
+            }
         case 3:
             let task = data[indexPath.row] as! Three
             if task.done as Bool {
                 cell.backgroundColor = UIColor.greenColor()
+            }
+            else {
+                cell.backgroundColor = UIColor.whiteColor()
             }
         case 4:
             let task = data[indexPath.row] as! Four
             if task.done as Bool {
                 cell.backgroundColor = UIColor.greenColor()
             }
+            else {
+                cell.backgroundColor = UIColor.whiteColor()
+            }
         case 5:
             let task = data[indexPath.row] as! Five
             if task.done as Bool {
                 cell.backgroundColor = UIColor.greenColor()
+            }
+            else {
+                cell.backgroundColor = UIColor.whiteColor()
             }
         default:
             println("invalid Stage")
@@ -91,6 +109,7 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if stage < 5 {
             let nextStage = storyboard?.instantiateViewControllerWithIdentifier("StageViewController") as! StageViewController
             navigationController?.pushViewController(nextStage, animated: true)
+            nextStage.lastPath = pathLabel.text! + " > "
             
             switch stage {
             case 2:

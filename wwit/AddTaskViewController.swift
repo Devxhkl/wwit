@@ -42,9 +42,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         view.endEditing(true)
-        taskTextFieldBottomConstraint.constant = 80.0
-        addTaskButtonBottomConstraint.constant = 80.0
-        cancelButtonBottomConstraint.constant = 130.0
+        taskTextFieldBottomConstraint.constant = 40.0
+        addTaskButtonBottomConstraint.constant = 8.0
+        cancelButtonBottomConstraint.constant = 120.0
         
         UIView.animateWithDuration(0.25, animations: {
             self.view.layoutIfNeeded()
@@ -54,9 +54,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
-            taskTextFieldBottomConstraint.constant = 80.0
-            addTaskButtonBottomConstraint.constant = 80.0
-            cancelButtonBottomConstraint.constant = 130.0
+            taskTextFieldBottomConstraint.constant = 40.0
+            addTaskButtonBottomConstraint.constant = 8.0
+            cancelButtonBottomConstraint.constant = 120.0
             
             UIView.animateWithDuration(0.25, animations: {
                 self.view.layoutIfNeeded()
