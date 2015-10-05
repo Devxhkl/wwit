@@ -99,7 +99,7 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 cell.backgroundColor = UIColor.whiteColor()
             }
         default:
-            println("invalid Stage")
+            print("invalid Stage")
         }
         
         return cell
@@ -135,7 +135,7 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 
             default:
-                println("Invalid case")
+                print("Invalid case")
                 
             }
         }
@@ -145,14 +145,14 @@ class StageViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        var doneAction = UITableViewRowAction(style: .Normal, title: "Done", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let doneAction = UITableViewRowAction(style: .Normal, title: "Done", handler: { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             
             self.dataCenter.markAsDone(self.stage, task: self.data[indexPath.row])
             self.wwitTable.reloadData()
         })
         
-        var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             
             self.dataCenter.deleteTask(self.data[indexPath.row])
             self.data.removeAtIndex(indexPath.row)

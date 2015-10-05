@@ -75,13 +75,13 @@ class OneViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        var doneAction = UITableViewRowAction(style: .Normal, title: "Done", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+        let doneAction = UITableViewRowAction(style: .Normal, title: "Done", handler: { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             
             self.dataCenter.markAsDone(1, task: self.data[indexPath.row])
             self.wwitTable.reloadData()
         })
         
-        var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             
             self.dataCenter.deleteTask(self.data[indexPath.row])
             self.wwitTable.reloadData()

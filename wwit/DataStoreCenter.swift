@@ -22,7 +22,7 @@ extension DataStoreCenter {
     func getData() {
         
         let request = NSFetchRequest(entityName: "One")
-        let data = managedObjectContext.executeFetchRequest(request, error: nil)
+        let data = try? managedObjectContext.executeFetchRequest(request)
         
         if let one = data {
             
@@ -40,9 +40,12 @@ extension DataStoreCenter {
         One.createOne(managedObjectContext, _title: title, _priority: priority, _done: false)
         
         var error: NSError?
-        if managedObjectContext.save(&error) {
-            println("saved main task")
+        do {
+            try managedObjectContext.save()
+            print("saved main task")
             getData()
+        } catch let error1 as NSError {
+            error = error1
         }
     }
     
@@ -59,14 +62,17 @@ extension DataStoreCenter {
         case 5:
             freshData = Five.createFive(managedObjectContext, _title: title, _priority: priority, _done: false, _four: motherEntity as! Four) as Five
         default:
-            println("Invalid stage")
+            print("Invalid stage")
         }
         
         var error: NSError?
-        if managedObjectContext.save(&error) {
+        do {
+            try managedObjectContext.save()
             notificationCenter.postNotificationName("freshData", object: nil, userInfo: [stage: freshData])
-            println("saved stage \(stage) task")
+            print("saved stage \(stage) task")
             getData()
+        } catch let error1 as NSError {
+            error = error1
         }
     }
     
@@ -83,13 +89,16 @@ extension DataStoreCenter {
         case 5:
             (task as! Five).done = 1
         default:
-            println("Invalid stage")
+            print("Invalid stage")
         }
         
         var error: NSError?
-        if managedObjectContext.save(&error) {
-            println("saved \(task.title) as Done")
+        do {
+            try managedObjectContext.save()
+            print("saved \(task.title) as Done")
             getData()
+        } catch let error1 as NSError {
+            error = error1
         }
     }
     
@@ -97,9 +106,12 @@ extension DataStoreCenter {
         managedObjectContext.deleteObject(task as! NSManagedObject)
         
         var error: NSError?
-        if managedObjectContext.save(&error) {
-            println("Deleted")
+        do {
+            try managedObjectContext.save()
+            print("Deleted")
             getData()
+        } catch let error1 as NSError {
+            error = error1
         }
     }
     

@@ -28,10 +28,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addTask(sender: AnyObject) {
         let dataStoreCenter = DataStoreCenter()
         if stage == 1 {
-            dataStoreCenter.addMainTask(taskTitleTextField.text, priority: "ASAP")
+            dataStoreCenter.addMainTask(taskTitleTextField.text!, priority: "ASAP")
         }
         else {
-            dataStoreCenter.addStageTask(stage, title: taskTitleTextField.text, priority: "Test", motherEntity: motherEntity)
+            dataStoreCenter.addStageTask(stage, title: taskTitleTextField.text!, priority: "Test", motherEntity: motherEntity)
         }
         
     }
@@ -40,7 +40,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
         taskTextFieldBottomConstraint.constant = 40.0
         addTaskButtonBottomConstraint.constant = 8.0
@@ -68,7 +68,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
-            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
                 taskTextFieldBottomConstraint.constant = 8.0
                 addTaskButtonBottomConstraint.constant = 8.0
                 cancelButtonBottomConstraint.constant = 8.0 + keyboardHeight
